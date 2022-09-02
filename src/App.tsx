@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Calculadora from "./Components/Calculadora";
+import ChartTax from "./Components/ChartTax";
 import "./_global.scss";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         Formula M = C . (1 + i)<sup>n</sup>
       </p>
       <Calculadora />
+      <ChartTax />
     </div>
   );
 }
