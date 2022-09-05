@@ -7,23 +7,35 @@ const slice = createSlice({
   name: "fatores",
   initialState: {
     entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal" },
-    parcelaPorPeriodo: [] as number[],
+    parcelaPorPeriodo: [] as { titulo: string; parcelas: number[]; taxa: number; tempo: number; montante: number }[],
   },
   reducers: {
     changeValue(store, action) {
+      const calculoMontante = (action.payload.capitalAplicado.valor *
+        (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, action.payload.tempo.valor) -
+          1)) as number;
       (store.entrada.capitalAplicado = action.payload.capitalAplicado.valor),
         (store.entrada.taxaJuros = action.payload.taxaJuros.valor),
         (store.entrada.tempo = action.payload.tempo.valor),
-        (store.entrada.montante =
-          action.payload.capitalAplicado.valor *
-          (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, action.payload.tempo.valor) - 1)),
+        (store.entrada.montante = calculoMontante),
         (store.entrada.periodo = action.payload.periodo);
-      for (let i = 1; i <= action.payload.tempo.valor; i++) {
-        store.parcelaPorPeriodo.push(
-          action.payload.capitalAplicado.valor *
-            (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, i) - 1),
-        );
-      }
+      store.parcelaPorPeriodo = [
+        ...store.parcelaPorPeriodo,
+        {
+          titulo: `Taxa ${store.entrada.taxaJuros}%, período ${store.entrada.tempo}`,
+          taxa: store.entrada.taxaJuros,
+          tempo: store.entrada.tempo,
+          montante: calculoMontante,
+          parcelas: [
+            ...[...Array(Number(action.payload.tempo.valor))].map(
+              (cada, index) =>
+                (cada =
+                  action.payload.capitalAplicado.valor *
+                  (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index) - 1)),
+            ),
+          ],
+        },
+      ];
     },
     // calulateSimple: (store, action) => {
     //   return { ...store, montante: store.capitalAplicado * (Math.pow(1 + store.taxaJuros, store.tempo) - 1) };
