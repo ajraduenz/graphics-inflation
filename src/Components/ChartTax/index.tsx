@@ -34,30 +34,11 @@ const ChartTax = () => {
   const capitalAplicado = useSelector((state: RootState) => state.fatores.entrada.capitalAplicado);
   const tempo = useSelector((state: RootState) => state.fatores.entrada.tempo);
   //
-  console.log(graficos);
-  const options1 = {
-    responsive: true,
+  const options = {
     scales: {
       x: {
         stacked: true,
       },
-      y: {
-        stacked: true,
-        position: "right",
-      },
-    },
-    plugins: {
-      legend: {
-        position: "top" as const,
-      },
-      title: {
-        display: true,
-        text: "Chart.js Bar Chart",
-      },
-    },
-  };
-  const options2 = {
-    scales: {
       y: {
         position: "right",
       },
@@ -74,27 +55,10 @@ const ChartTax = () => {
   };
 
   const labels = [...Array(Number(tempo)).keys()];
-
-  const data1 = {
-    labels,
-    datasets: [
-      {
-        type: "bar" as const,
-        label: "Dataset 2",
-        data: labels.map((_, index) => capitalAplicado),
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
-      },
-      {
-        type: "bar" as const,
-        label: "Dataset 1",
-        data: labels.map((_, index) => graficos[graficos.length - 1].parcelas[index]),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  };
   const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
   const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
-  const data2 = {
+
+  const data = {
     labels,
     datasets: [
       ...graficos?.map((grafico) => {
@@ -106,17 +70,28 @@ const ChartTax = () => {
           borderWidth: 2,
           fill: false,
           data: grafico?.parcelas.map((valor) => {
-            return Number(valor);
+            return Number(valor) + Number(capitalAplicado);
           }),
         };
       }),
+      {
+        type: "bar" as const,
+        label: "Dataset 2",
+        data: labels.map((_, index) => capitalAplicado),
+        backgroundColor: "rgba(0, 153, 255, 0.7)",
+      },
+      {
+        type: "bar" as const,
+        label: "Dataset 1",
+        data: labels.map((_, index) => graficos[graficos.length - 1].parcelas[index]+ Number(capitalAplicado)),
+        backgroundColor: "rgba(200, 40, 74, 0.7)",
+      },
     ],
   };
 
   return (
     <>
-      <Chart type="bar" options={options1} data={data1} />
-      <Chart type="bar" options={options2} data={data2} />
+      <Chart type="bar" options={options} data={data} />
     </>
   );
 };
