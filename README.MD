@@ -1,2 +1,3 @@
 - Brazilian Inflation 
 - Compound interest chart
+- Simulador de juros fácil, Juros Composto, Calculadora de juros composto

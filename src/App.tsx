@@ -16,8 +16,7 @@ function App() {
   const url3 = "https://brasilapi.com.br/api/feriados/v1/2020";
   const url4 =
     "http://api.bcb.gov.br/dados/serie/bcdata.sgs.10613/dados?formato=json&dataInicial=01/01/2010&dataFinal=31/12/2016";
-  const url5 =
-    "http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y";
+  const url5 = "http://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=y";
 
   // useEffect(() => {
   //   fetch(url5)
@@ -32,11 +31,17 @@ function App() {
   return (
     <div className="App">
       <h1>Calculadora de juros compostos com gráfico</h1>
-      <p>
-        Formula M = C . (1 + i)<sup>n</sup>
-      </p>
-      <Calculadora />
-      <ChartTax />
+      <div className="chart-container">
+        <Calculadora />
+
+        <ChartTax />
+        <p className="obs">
+          Formula:{" "}
+          <strong>
+            M = C . (1 + i)<sup>n</sup>
+          </strong>
+        </p>
+      </div>
     </div>
   );
 }

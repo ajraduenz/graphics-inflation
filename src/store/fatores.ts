@@ -37,6 +37,12 @@ const slice = createSlice({
         },
       ];
     },
+    clearValues(store) {
+      return {
+        entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal" },
+        parcelaPorPeriodo: [],
+      };
+    },
     // calulateSimple: (store, action) => {
     //   return { ...store, montante: store.capitalAplicado * (Math.pow(1 + store.taxaJuros, store.tempo) - 1) };
     // },
@@ -48,5 +54,5 @@ const slice = createSlice({
   },
 });
 
-export const { changeValue } = slice.actions;
+export const { changeValue, clearValues } = slice.actions;
 export default slice.reducer;

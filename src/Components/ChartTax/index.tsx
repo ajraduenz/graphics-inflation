@@ -15,6 +15,7 @@ import { Chart } from "react-chartjs-2";
 // Redux
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/configureStore";
+import "./chart.scss";
 
 ChartJS.register(
   LinearScale,
@@ -35,11 +36,26 @@ const ChartTax = () => {
   const tempo = useSelector((state: RootState) => state.fatores.entrada.tempo);
   //
   const options = {
+    color: "#e6e6e6",
+
     scales: {
       x: {
+        grid: {
+          color: "black",
+        },
+        ticks: {
+          color: "#e6e6e6",
+        },
+        color: "black",
         stacked: true,
       },
       y: {
+        grid: {
+          color: "black",
+        },
+        ticks: {
+          color: "#e6e6e6",
+        },
         position: "right",
       },
     },
@@ -49,7 +65,7 @@ const ChartTax = () => {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "Juros compostos",
       },
     },
   };
@@ -76,23 +92,25 @@ const ChartTax = () => {
       }),
       {
         type: "bar" as const,
-        label: "Dataset 2",
+        label: "Capital Inicial (C)",
         data: labels.map((_, index) => capitalAplicado),
         backgroundColor: "rgba(0, 153, 255, 0.7)",
       },
       {
         type: "bar" as const,
-        label: "Dataset 1",
-        data: labels.map((_, index) => graficos[graficos.length - 1].parcelas[index]+ Number(capitalAplicado)),
+        label: "Capital Inicial + Juros do período",
+        data: labels.map((_, index) => graficos[graficos.length - 1].parcelas[index] + Number(capitalAplicado)),
         backgroundColor: "rgba(200, 40, 74, 0.7)",
       },
     ],
   };
 
   return (
-    <>
-      <Chart type="bar" options={options} data={data} />
-    </>
+    capitalAplicado !== 0 && (
+      <section className="grafico">
+        <Chart type="bar" options={options} data={data} />
+      </section>
+    )
   );
 };
 
