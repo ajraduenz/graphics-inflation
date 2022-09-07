@@ -37,7 +37,6 @@ const ChartTax = () => {
   //
   const options = {
     color: "#e6e6e6",
-
     scales: {
       x: {
         grid: {
@@ -56,7 +55,7 @@ const ChartTax = () => {
         ticks: {
           color: "#e6e6e6",
         },
-        position: "right",
+        // position: "right" - A concertar
       },
     },
     plugins: {
@@ -106,11 +105,13 @@ const ChartTax = () => {
   };
 
   return (
-    capitalAplicado !== 0 && (
-      <section className="grafico">
-        <Chart type="bar" options={options} data={data} />
-      </section>
-    )
+    <>
+      {capitalAplicado !== 0 && (
+        <section className="grafico">
+          <Chart type="bar" options={options} data={data} />
+        </section>
+      )}
+    </>
   );
 };
 
