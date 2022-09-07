@@ -30,6 +30,7 @@ $secondary-2: #6077c0;
 
   &:focus-visible {
     outline: none !important;
+    border-color: red;
   }
 }
 body {

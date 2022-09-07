@@ -5,6 +5,6 @@
 - jurosfacilonline
 - saving fees
 - saving money calculator
-- savingmoneyrate
+- saving money rate
 
 https://www.locaweb.com.br/registro-de-dominio
