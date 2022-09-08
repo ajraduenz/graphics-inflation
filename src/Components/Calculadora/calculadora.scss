@@ -1,13 +1,19 @@
 @import "../../_global";
 .calculadora {
   @include container;
-  width: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 350px;
   width: calc(30% - 2rem);
   box-sizing: border-box;
+  @media screen and (max-width: $lg) {
+    width: 75%;
+    max-width: unset;
+  }
+  @media screen and (max-width: $sm) {
+    width: 100%;
+  }
 }
 .input {
   @include text;
