@@ -34,10 +34,10 @@ input {
   border-bottom: 1px solid #ffffff;
   margin: 0.5rem 0.25rem 0.5rem 0;
   color: $text-color-1;
-  font-size: 1.15rem;
-  &:hover,
+  font-size: 1.15rem;  
   &:focus-visible {
-    outline: none;
+    outline: none !important;
+    border-color: red;
   }
 }
 button {

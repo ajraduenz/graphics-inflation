@@ -27,7 +27,7 @@ const Calculadora = () => {
             <label htmlFor={input[0]}>{input[1].title}:</label>
             <input
               id={input[0]}
-              value={input[1].valor}
+              value={input[1].valor || ""}
               onChange={(e) =>
                 setInputs({
                   ...inputs,
