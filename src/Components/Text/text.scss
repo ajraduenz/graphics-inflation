@@ -1,0 +1,18 @@
+@import "../../_global";
+.text-content {
+  font-family: "Roboto", sans-serif;
+  max-width: 1024px;
+  margin: 0 auto;
+  @include section-spacing;
+  strong {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  p {
+    font-weight: 300;
+  }
+  .formula {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

@@ -14,13 +14,18 @@ $secondary-2: #6077c0;
   font-weight: 700;
   letter-spacing: 0.05rem;
 }
+@mixin title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
 @mixin container {
   padding: 1.5rem;
   border-radius: 20px;
   background: lighten($backgroundColor-1, 5%);
 }
 @mixin section-spacing {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 @mixin buttons {
   background: darken($backgroundColor-1, 5%);
@@ -43,7 +48,7 @@ body {
 .chart-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem;
+  @include section-spacing;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -53,14 +58,7 @@ body {
 h1 {
   @include title;
   margin: 0 auto;
-  margin: 2rem auto;
+  margin: 3rem auto 0 auto;
   width: 100%;
   text-align: center;
-}
-p {
-  @include text;
-  &.obs {
-    width: 100%;
-    padding-left: 1.5rem;
-  }
 }
