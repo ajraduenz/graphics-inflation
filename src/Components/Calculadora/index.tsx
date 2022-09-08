@@ -7,18 +7,21 @@ import "./calculadora.scss";
 const Calculadora = () => {
   //
   const fatores = useSelector((state: RootState) => state.fatores.entrada);
+  //
 
   const [inputs, setInputs] = useState({
     capitalAplicado: { title: "Capital aplicado (C)", valor: fatores.capitalAplicado },
     taxaJuros: { title: "Taxa de juros", valor: fatores.taxaJuros },
     tempo: { title: "Tempo", valor: fatores.tempo },
   });
+  const [error, setError] = React.useState(false);
   const [periodo, setPeriodo] = useState("Mensal");
   const dispatch = useDispatch();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPeriodo(event.target.value);
   };
   //
+ 
   return (
     <section className="calculadora">
       {Object.entries(inputs).map((input, index) => {
@@ -48,7 +51,20 @@ const Calculadora = () => {
           </div>
         );
       })}
-      <button onClick={() => dispatch(changeValue({ ...inputs, periodo: periodo }))}>Calcular</button>
+      <button
+        onClick={() => {
+          ![
+            ...Object.values(inputs).map((input) => {
+              return input.valor === 0;
+            }),
+          ].every((entry) => entry === false)
+            ? setError(true)
+            : (setError(false), dispatch(changeValue({ ...inputs, periodo: periodo })));
+        }}
+      >
+        Calcular
+      </button>
+      {error && <p className="error">* Contém erro, por favor verifique seus dados</p>}
       <button onClick={() => dispatch(clearValues())}>Limpar</button>
       <strong className="result">
         <div>Resultado:</div>
