@@ -69,15 +69,13 @@ const ChartTax = () => {
     },
   };
 
-  const labels = [...Array(Number(tempo)).keys()];
+  const labels = [...Array(Number(tempo)).keys()].map((num) => num + 1);
   const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
   const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
-
   const data = {
     labels,
     datasets: [
       ...graficos?.map((grafico) => {
-        console.log(grafico);
         return {
           type: "line" as const,
           label: grafico.titulo,

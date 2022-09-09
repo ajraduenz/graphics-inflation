@@ -19,6 +19,8 @@ const Calculadora = () => {
   const dispatch = useDispatch();
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPeriodo(event.target.value);
+    fatores.montante !== 0 && dispatch(clearValues())
+    
   };
   //
  

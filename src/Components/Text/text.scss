@@ -4,7 +4,7 @@
   max-width: 800px;
   margin: 0 auto;
   @include section-spacing;
-  strong {
+  h2 {
     font-weight: 700;
     font-size: 2rem;
   }
@@ -14,5 +14,15 @@
   .formula {
     font-size: 1rem;
     font-weight: 700;
-  } 
+  }
+  li {
+    margin-top: 0.5rem;
+  }
+  .example {
+    list-style: none;
+    strong {
+      margin-top: 0.5rem;
+      display: block;
+    }
+  }
 }

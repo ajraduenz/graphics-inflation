@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import store from "./configureStore";
-type Fatores = {
-  [key: string]: number | string;
-};
+
 const slice = createSlice({
   name: "fatores",
   initialState: {
     entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal" },
-    parcelaPorPeriodo: [] as { titulo: string; parcelas: number[]; taxa: number; tempo: number; montante: number }[],
+    parcelaPorPeriodo: [] as {
+      titulo: string;
+      parcelas: number[];
+      taxa: number;
+      tempo: number;
+      montante: number;
+    }[],
   },
   reducers: {
     changeValue(store, action) {
@@ -31,7 +34,7 @@ const slice = createSlice({
               (cada, index) =>
                 (cada =
                   action.payload.capitalAplicado.valor *
-                  (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index) - 1)),
+                  (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1)),
             ),
           ],
         },
@@ -39,7 +42,7 @@ const slice = createSlice({
     },
     clearValues(store) {
       return {
-        entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal" },
+        entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal", aporte: 0 },
         parcelaPorPeriodo: [],
       };
     },
