@@ -3,13 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
   name: "fatores",
   initialState: {
-    entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal" },
+    entrada: { montante: 0, capitalAplicado: 0, taxaJuros: 0, tempo: 0, periodo: "Mensal", aporte: 0 },
     parcelaPorPeriodo: [] as {
       titulo: string;
       parcelas: number[];
       taxa: number;
       tempo: number;
       montante: number;
+      aporte: number;
     }[],
   },
   reducers: {
@@ -29,13 +30,24 @@ const slice = createSlice({
           taxa: store.entrada.taxaJuros,
           tempo: store.entrada.tempo,
           montante: calculoMontante,
+          aporte: store.entrada.aporte,
           parcelas: [
-            ...[...Array(Number(action.payload.tempo.valor))].map(
-              (cada, index) =>
-                (cada =
+            ...[...Array(Number(action.payload.tempo.valor))].map((cada, index) => {
+              if (store.entrada.aporte === 0) {
+                return (cada =
                   action.payload.capitalAplicado.valor *
-                  (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1)),
-            ),
+                  (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1));
+              } else {
+                return (cada =
+                  action.payload.capitalAplicado.valor *
+                    (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1) +
+                  store.entrada.aporte *
+                    ((Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1) /
+                      (action.payload.taxaJuros.valor.replace(",", ".") / 100)));
+              }
+
+              // cada = (action.payload.capitalAplicado.valor * Math.pow((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100), index + 1)) + (store.entrada.aporte * (Math.pow((((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100))) − 1) ÷ (action.payload.taxaJuros.valor.replace(",", ".") / 100)))
+            }),
           ],
         },
       ];

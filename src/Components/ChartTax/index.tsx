@@ -34,6 +34,7 @@ const ChartTax = () => {
   const graficos = useSelector((state: RootState) => state.fatores.parcelaPorPeriodo);
   const capitalAplicado = useSelector((state: RootState) => state.fatores.entrada.capitalAplicado);
   const tempo = useSelector((state: RootState) => state.fatores.entrada.tempo);
+  // console.log(graficos)
   //
   const options = {
     color: "#e6e6e6",
