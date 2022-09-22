@@ -13,7 +13,7 @@ const Intro = ({ selicHoje }: Props) => {
       <h1>Calculadora de juros compostos com gráfico</h1>
       <p>
         Os juros compostos são também chamados de juros sobre juros, um bom investimento precisa ser igual ou maior a
-        taxa Selic ao ano de hoje. Digite os valores e compare no gráficos o seus investimentos. Lembrando que a{" "}
+        taxa Selic ao ano de hoje. Digite os valores e compare no gráfico os seus investimentos. Lembrando que a{" "}
         <a className="link" target="_blank" rel="nofollow" href="https://www.bcb.gov.br/controleinflacao/taxaselic">
           taxa Selic
         </a>{" "}
