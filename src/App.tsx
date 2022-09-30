@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Calculadora from "./Components/Calculadora";
 import ChartTax from "./Components/ChartTax";
+import Footer from "./Components/Footer";
 import Intro from "./Components/Intro";
 import Text from "./Components/Text";
 import "./_global.scss";
@@ -50,6 +51,7 @@ function App() {
         <ChartTax />
       </div>
       <Text />
+      <Footer />
     </div>
   );
 }

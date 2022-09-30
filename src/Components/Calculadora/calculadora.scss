@@ -35,7 +35,7 @@ input {
   width: 100%;
   padding-left: 0.25rem;
   display: flex;
-  background-color: #455073;
+  background-color: $backgroundColor-1;
   border: none;
   border-bottom: 1px solid #ffffff;
   margin: 0.5rem 0.25rem 0.5rem 0;
@@ -44,6 +44,12 @@ input {
   &:focus-visible {
     outline: none !important;
     border-color: red;
+  }
+  &:-webkit-autofill {
+    -webkit-text-fill-color: $text-color-1 !important;
+    -webkit-box-shadow: 0 0 0px 1000px $backgroundColor-1 inset;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color:  $text-color-1;
   }
 }
 button {
@@ -89,5 +95,4 @@ input#taxaJuros {
 .error {
   @include text;
   font-weight: 700;
-
 }

@@ -32,6 +32,7 @@ const Calculadora = () => {
             <label htmlFor={input[0]}>{input[1].title}:</label>
             <input
               id={input[0]}
+              type={input[1].title === "Tempo" ? "number" : "text"}
               value={input[1].valor || ""}
               onChange={(e) =>
                 setInputs({
