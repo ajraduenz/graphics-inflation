@@ -5,17 +5,38 @@ const Text = () => {
     <section className="text-content">
       <h2>O que são juros compostos?</h2>
       <p>
-        Se você está investindo em juros compostos significa que você está investindo em uma condição que você receberá no final do investimento o valor aplicado mais juros sobre o valor aplicado, e além disso, mais juros sobre o prório juros que você recebeu durante o período negociado, (veja exemplo abaixo), por isso é uma das melhores opções para se investir no mercado. Quanto maior o tempo investido ou quanto maior a taxa de juros negociada, maior é o retorno do investimento.
+        Se você está investindo em juros compostos significa que você está investindo em uma condição que você receberá
+        no final do investimento o valor aplicado mais juros sobre o valor aplicado, e além disso, mais juros sobre o
+        prório juros que você recebeu durante o período negociado, (veja exemplo abaixo), por isso é uma das melhores
+        opções para se investir no mercado. Quanto maior o tempo investido ou quanto maior a taxa de juros negociada,
+        maior é o retorno do investimento.
       </p>
       <p>
-        A diferença do juros compostos para os juros simples é simples: Nos juros simples você ja tem um valor pré estabelecido de quanto vai ser o juros no final do período, calculado de acordo com o valor principal do investimento. Já nos juros compostos não, o investimento varia de acordo com o valor principal do investimento somado ao valor já recebido de juros anteriormente, por isso os juros compostos são popularmente conhecidos como juros sobre juros.
+        A diferença do juros compostos para os juros simples é simples: Nos juros simples você ja tem um valor pré
+        estabelecido de quanto vai ser o juros no final do período, calculado de acordo com o valor principal do
+        investimento. Já nos juros compostos não, o investimento varia de acordo com o valor principal do investimento
+        somado ao valor já recebido de juros anteriormente, por isso os juros compostos são popularmente conhecidos como
+        juros sobre juros.
       </p>
+      <h2>Juros compostos com aporte</h2>
+      <p>
+        Os juros compostos com aporte é uma modalidade em que você acrescenta um novo valor a cada período de tempo, ou
+        seja, uma boa taxa de juros e um aporte é a combinação perfeita para um bom rendimento de sua aplicação.{" "}
+      </p>
+
       <h2>Porque conhecer juros é importante?</h2>
-      <p>Entrar em um investimento bom pode fazer total diferença na sua vida financeira, você pode economizar anos de vida e milhares de horas de trabalho. Entrar em investimentos de juros compostos é um ótimo plano investimentos desde planejar uma reserva ou investir em algum negócio ao final do prazo.</p>
-      <p> Conhecendo os juros compostos da forma correta pode evitar de que você de entre em um empréstimo em que você se arrependa. Além disso, você pode traçar um plano híbrido, em que você economiza uma parte do investimento e contrata com seu banco um empréstimo menor com uma taxa de juros menor e mais flexível.      
+      <p>
+        Entrar em um investimento bom pode fazer total diferença na sua vida financeira, você pode economizar anos de
+        vida e milhares de horas de trabalho. Entrar em investimentos de juros compostos é um ótimo plano investimentos
+        desde planejar uma reserva ou investir em algum negócio ao final do prazo.
       </p>
-      <p> 
-      Calcule e faça simulações na nossa ferramenta grátis e veja se vale a pena economizar ou fazer o empréstimo.  
+      <p>
+        Conhecendo os juros compostos da forma correta pode evitar de que você de entre em um empréstimo em que você se
+        arrependa. Além disso, você pode traçar um plano híbrido, em que você economiza uma parte do investimento e
+        contrata com seu banco um empréstimo menor com uma taxa de juros menor e mais flexível.
+      </p>
+      <p>
+        Calcule e faça simulações na nossa ferramenta grátis e veja se vale a pena economizar ou fazer o empréstimo.
       </p>
       <h2>Como o calcular juros compostos?</h2>
       <p>
@@ -24,9 +45,10 @@ const Text = () => {
         multiplicamos pelo capital investido (C){" "}
       </p>
       <p>
-        Aqui você consegue visualizar e comparar de forma grátis diversas simulações de investimento no gráfico, para
-        adicionar uma nova simulação ao gráfico basta adicionar um novo valor na calculadora
+        Aqui você consegue visualizar e comparar de forma grátis diversas simulações de investimento, para adicionar uma
+        nova simulação ao gráfico basta adicionar um novo valor na calculadora
       </p>
+      <img src="./simulação-juros-compostos.png" alt="gráfico de simulação de juros compostos" />
       <p className="formula">
         Formula:{" "}
         <span>

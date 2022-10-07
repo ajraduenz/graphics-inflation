@@ -4,6 +4,10 @@
   max-width: 800px;
   margin: 0 auto;
   @include section-spacing;
+  img{
+    display: flex;
+    width: 100%;
+  }
   h2 {
     font-weight: 700;
     font-size: 2rem;
