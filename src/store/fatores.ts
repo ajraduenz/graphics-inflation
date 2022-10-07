@@ -15,25 +15,32 @@ const slice = createSlice({
   },
   reducers: {
     changeValue(store, action) {
-      const calculoMontante = (action.payload.capitalAplicado.valor *
-        (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, action.payload.tempo.valor) -
-          1)) as number;
+      const calculoMontante = () => {
+        return +store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1]?.parcelas[
+          store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1].parcelas.length - 1
+        ].toFixed(2);
+      };
+      // const aporte = () => {
+      //   if (action.payload.aporte.valor === 0) return false;
+      //   return true;
+      // };
+      const aporte = action.payload.aporte.valor === 0 ? false : true;
+
       (store.entrada.capitalAplicado = action.payload.capitalAplicado.valor),
         (store.entrada.taxaJuros = action.payload.taxaJuros.valor),
         (store.entrada.tempo = action.payload.tempo.valor),
-        (store.entrada.montante = calculoMontante),
         (store.entrada.periodo = action.payload.periodo);
+      store.entrada.aporte = action.payload.aporte.valor;
       store.parcelaPorPeriodo = [
         ...store.parcelaPorPeriodo,
         {
-          titulo: `Taxa ${store.entrada.taxaJuros}%, período ${store.entrada.tempo}`,
+          titulo: `Taxa ${store.entrada.taxaJuros}%, período ${store.entrada.tempo} ${aporte ? "aporte R$" + action.payload.aporte.valor + " por período" : ""}`,
           taxa: store.entrada.taxaJuros,
           tempo: store.entrada.tempo,
-          montante: calculoMontante,
           aporte: store.entrada.aporte,
           parcelas: [
             ...[...Array(Number(action.payload.tempo.valor))].map((cada, index) => {
-              if (store.entrada.aporte === 0) {
+              if (aporte) {
                 return (cada =
                   action.payload.capitalAplicado.valor *
                   (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1));
@@ -46,11 +53,13 @@ const slice = createSlice({
                       (action.payload.taxaJuros.valor.replace(",", ".") / 100)));
               }
 
-              // cada = (action.payload.capitalAplicado.valor * Math.pow((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100), index + 1)) + (store.entrada.aporte * (Math.pow((((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100))) − 1) ÷ (action.payload.taxaJuros.valor.replace(",", ".") / 100)))
+              //  cada = (action.payload.capitalAplicado.valor * Math.pow((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100), index + 1)) + (store.entrada.aporte * (Math.pow((((1 + action.payload.taxaJuros.valor.replace(",", ".") / 100))) − 1) ÷ (action.payload.taxaJuros.valor.replace(",", ".") / 100)))
             }),
           ],
+          montante: calculoMontante(),
         },
       ];
+      store.entrada.montante = calculoMontante();
     },
     clearValues(store) {
       return {

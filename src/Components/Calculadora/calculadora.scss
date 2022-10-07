@@ -23,6 +23,11 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: left;
+  width: 100%;
+}
+.input.aporte label{
+  width: auto;
+  margin-right: 1rem;
 }
 label {
   width: 100%;
@@ -95,4 +100,9 @@ input#taxaJuros {
 .error {
   @include text;
   font-weight: 700;
+}
+.aporte-button{
+  @include buttons;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
 }
