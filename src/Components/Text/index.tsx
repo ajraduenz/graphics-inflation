@@ -21,7 +21,7 @@ const Text = () => {
       <h2>Juros compostos com aporte</h2>
       <p>
         Os juros compostos com aporte é uma modalidade em que você acrescenta um novo valor a cada período de tempo, ou
-        seja, uma boa taxa de juros e um aporte é a combinação perfeita para um bom rendimento de sua aplicação.{" "}
+        seja, é a combinação perfeita para um bom rendimento de sua aplicação. Essa modalidade é comum para mensalistas que montam uma poupança de longo prazo a partir de um determinado valor que sobra de seu salário.
       </p>
 
       <h2>Porque conhecer juros é importante?</h2>
