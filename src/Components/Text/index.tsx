@@ -18,12 +18,15 @@ const Text = () => {
         somado ao valor já recebido de juros anteriormente, por isso os juros compostos são popularmente conhecidos como
         juros sobre juros.
       </p>
+      <p>Veja abaixo um exemplo de simulações de juros compostos:</p>
+      <img className="sem-aporte" src="./simulação-juros-compostos.png" alt="gráfico de simulação de juros compostos" />
       <h2>Juros compostos com aporte</h2>
       <p>
         Os juros compostos com aporte é uma modalidade em que você acrescenta um novo valor a cada período de tempo, ou
         seja, é a combinação perfeita para um bom rendimento de sua aplicação. Essa modalidade é comum para mensalistas que montam uma poupança de longo prazo a partir de um determinado valor que sobra de seu salário.
       </p>
-
+      <p>Veja abaixo um exemplo de simulações de juros compostos com aportes por período:</p>
+      <img className="com-aporte" src="./simulação-juros-compostos-com-aporte.png" alt="gráfico de simulação de juros compostos com aporte" />
       <h2>Porque conhecer juros é importante?</h2>
       <p>
         Entrar em um investimento bom pode fazer total diferença na sua vida financeira, você pode economizar anos de
@@ -47,8 +50,7 @@ const Text = () => {
       <p>
         Aqui você consegue visualizar e comparar de forma grátis diversas simulações de investimento, para adicionar uma
         nova simulação ao gráfico basta adicionar um novo valor na calculadora
-      </p>
-      <img src="./simulação-juros-compostos.png" alt="gráfico de simulação de juros compostos" />
+      </p>     
       <p className="formula">
         Formula:{" "}
         <span>

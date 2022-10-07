@@ -34,6 +34,7 @@ const ChartTax = () => {
   const graficos = useSelector((state: RootState) => state.fatores.parcelaPorPeriodo);
   const capitalAplicado = useSelector((state: RootState) => state.fatores.entrada.capitalAplicado);
   const tempo = useSelector((state: RootState) => state.fatores.entrada.tempo);
+  const aporte = useSelector((state: RootState) => state.fatores.entrada.aporte);
   // console.log(graficos)
   //
   const options = {
@@ -96,7 +97,7 @@ const ChartTax = () => {
       },
       {
         type: "bar" as const,
-        label: "Capital Inicial + Juros do período",
+        label: `Capital Inicial + Juros do período${aporte !== 0 ? " e aporte" : ""} `,
         data: labels.map((_, index) => graficos[graficos.length - 1].parcelas[index] + Number(capitalAplicado)),
         backgroundColor: "rgba(200, 40, 74, 0.7)",
       },

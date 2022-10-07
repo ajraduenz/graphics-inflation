@@ -4,9 +4,15 @@
   max-width: 800px;
   margin: 0 auto;
   @include section-spacing;
-  img{
+  img {
     display: flex;
     width: 100%;
+    &.sem-aporte {
+      aspect-ratio: 800/429;
+    }
+    &.com-aporte {
+      aspect-ratio: 800/400;
+    }
   }
   h2 {
     font-weight: 700;

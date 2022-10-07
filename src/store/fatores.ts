@@ -16,6 +16,9 @@ const slice = createSlice({
   reducers: {
     changeValue(store, action) {
       const calculoMontante = () => {
+        console.log( +store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1]?.parcelas[
+          store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1].parcelas.length - 1
+        ].toFixed(2))
         return +store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1]?.parcelas[
           store.parcelaPorPeriodo[store.parcelaPorPeriodo.length - 1].parcelas.length - 1
         ].toFixed(2);
@@ -24,7 +27,7 @@ const slice = createSlice({
       //   if (action.payload.aporte.valor === 0) return false;
       //   return true;
       // };
-      const aporte = action.payload.aporte.valor === 0 ? false : true;
+      // const aporte = action.payload.aporte.valor === 0 ? false : true;
 
       (store.entrada.capitalAplicado = action.payload.capitalAplicado.valor),
         (store.entrada.taxaJuros = action.payload.taxaJuros.valor),
@@ -34,13 +37,13 @@ const slice = createSlice({
       store.parcelaPorPeriodo = [
         ...store.parcelaPorPeriodo,
         {
-          titulo: `Taxa ${store.entrada.taxaJuros}%, período ${store.entrada.tempo} ${aporte ? "aporte R$" + action.payload.aporte.valor + " por período" : ""}`,
+          titulo: `Taxa ${store.entrada.taxaJuros}%, período ${store.entrada.tempo} ${action.payload.aporte.valor !==0 ? "aporte R$" + action.payload.aporte.valor + " por período" : ""}`,
           taxa: store.entrada.taxaJuros,
           tempo: store.entrada.tempo,
           aporte: store.entrada.aporte,
           parcelas: [
             ...[...Array(Number(action.payload.tempo.valor))].map((cada, index) => {
-              if (aporte) {
+              if (action.payload.aporte.valor === 0) {
                 return (cada =
                   action.payload.capitalAplicado.valor *
                   (Math.pow(1 + action.payload.taxaJuros.valor.replace(",", ".") / 100, index + 1) - 1));
