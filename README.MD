@@ -1,9 +1,3 @@
-add table
-como melhorar o financiamento
-ferias
-porcentagem sobre hora
-converter para inglês
-
 - Brazilian Inflation 
 - Compound interest chart
 - Simulador de juros fácil, Juros Composto, online, Calculadora de juros composto

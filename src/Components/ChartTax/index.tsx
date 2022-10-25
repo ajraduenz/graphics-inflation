@@ -14,9 +14,8 @@ import {
 import { Chart } from "react-chartjs-2";
 // Redux
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/juros-compostos/configureStore";
-
-import styles from "./chart.module.scss";
+import { RootState } from "../../store/configureStore";
+import "./chart.scss";
 
 ChartJS.register(
   LinearScale,
@@ -108,7 +107,7 @@ const ChartTax = () => {
   return (
     <>
       {capitalAplicado !== 0 && (
-        <section className={styles.grafico}>
+        <section className="grafico">
           <Chart type="bar" options={options} data={data} />
         </section>
       )}

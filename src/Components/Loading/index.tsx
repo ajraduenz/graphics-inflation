@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./loading.module.scss";
+import "./loading.scss";
 
 type Props = {};
 
 const Loading = (props: Props) => {
   return (
-    <div className={styles.loading}>
+    <div className="loading">
       {/* <div className="lds-ring">
         <div></div>
         <div></div>

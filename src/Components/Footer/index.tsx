@@ -1,12 +1,11 @@
 import React from "react";
-
-import styles from "./footer.module.scss";
+import "./footer.scss";
 
 type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <footer className={styles.footer}>
+    <footer className="footer">
       Contato: aldoraduenzjunior@gmail.com <br />© {new Date().getFullYear()} Todos os direitos reservados.
     </footer>
   );
