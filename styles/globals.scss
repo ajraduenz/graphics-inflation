@@ -1,0 +1,21 @@
+@import "./global";
+
+body {
+  background: $backgroundColor-1;
+  margin: 0;
+  padding: 0;
+  color: $text-color-1;
+  @media screen and (max-width: $lg) {
+    padding: 0 1rem;
+  }
+}
+
+h1 {
+  @include title;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+  @include section-spacing;
+}
