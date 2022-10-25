@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+$backgroundColor-1: #455073;
+$text-color-1: #e6e6e6;
+$secondary-1: #c0904d;
+$secondary-2: #6077c0;
+$lg: 1024px;
+$md: 768px;
+$sm: 520px;
+
+@mixin text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+@mixin title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+@mixin container {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: lighten($backgroundColor-1, 5%);
+}
+@mixin section-spacing {
+  margin-top: 3rem;
+  @media screen and (max-width: $lg) {
+    margin-top: 2rem;
+  }
+}
+@mixin buttons {
+  background: darken($backgroundColor-1, 5%);
+  cursor: pointer;
+  color: $text-color-1;
+  padding: 0.5rem 1rem;
+  &:focus-visible {
+    outline: none !important;
+    border-color: red;
+  }
+}
+
+
+.chart-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  @include section-spacing;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  @media screen and (max-width: $lg) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+

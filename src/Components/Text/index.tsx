@@ -1,8 +1,9 @@
-import "./text.scss";
+import Image from "next/image";
+import styles from "./text.module.scss";
 
 const Text = () => {
   return (
-    <section className="text-content">
+    <section className={styles["text-content"]}>
       <h2>O que são juros compostos?</h2>
       <p>
         Se você está investindo em juros compostos significa que você está investindo em uma condição que você receberá
@@ -19,14 +20,29 @@ const Text = () => {
         juros sobre juros.
       </p>
       <p>Veja abaixo um exemplo de simulações de juros compostos:</p>
-      <img className="sem-aporte" src="./simulação-juros-compostos.png" alt="gráfico de simulação de juros compostos" />
+      <Image
+        className="sem-aporte"
+        src="/simulação-juros-compostos.png"
+        alt="gráfico de simulação de juros compostos"
+        layout="responsive"
+        width={833}
+        height={447}
+      />
       <h2>Juros compostos com aporte</h2>
       <p>
         Os juros compostos com aporte é uma modalidade em que você acrescenta um novo valor a cada período de tempo, ou
-        seja, é a combinação perfeita para um bom rendimento de sua aplicação. Essa modalidade é comum para mensalistas que montam uma poupança de longo prazo a partir de um determinado valor que sobra de seu salário.
+        seja, é a combinação perfeita para um bom rendimento de sua aplicação. Essa modalidade é comum para mensalistas
+        que montam uma poupança de longo prazo a partir de um determinado valor que sobra de seu salário.
       </p>
       <p>Veja abaixo um exemplo de simulações de juros compostos com aportes por período:</p>
-      <img className="com-aporte" src="./simulação-juros-compostos-com-aporte.png" alt="gráfico de simulação de juros compostos com aporte" />
+      <Image
+        className="com-aporte"
+        src="/simulação-juros-compostos-com-aporte.png"
+        alt="gráfico de simulação de juros compostos com aporte"
+        layout="responsive"
+        width={835}
+        height={439}
+      />
       <h2>Porque conhecer juros é importante?</h2>
       <p>
         Entrar em um investimento bom pode fazer total diferença na sua vida financeira, você pode economizar anos de
@@ -50,7 +66,7 @@ const Text = () => {
       <p>
         Aqui você consegue visualizar e comparar de forma grátis diversas simulações de investimento, para adicionar uma
         nova simulação ao gráfico basta adicionar um novo valor na calculadora
-      </p>     
+      </p>
       <p className="formula">
         Formula:{" "}
         <span>
